@@ -1,0 +1,25 @@
+
+
+[model]
+ollama_model_name = "deepseek-r1:7b"
+# Local embedding model path
+#embedding_model_path = "nomic-embed-text:latest"
+embedding_model_path = ""
+# Ollama embedding model name
+ollama_embedding_model_name = "nomic-embed-text:latest"
+
+
+[database]
+# Milvus url
+milvus_docker_url = "http://localhost:19530"
+milvus_collection_name = "qa_dataset"
+milvus_query_top_k = 3
+bm25_query_top_k=3
+vector_weight=0.6
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+
+[path]
+
+
+[model]
+ollama_model_name = "deepseek-r1:7b"
+# Local embedding model path
+#embedding_model_path = "nomic-embed-text:latest"
+
+# Ollama embedding model name
+ollama_embedding_model_name = "nomic-embed-text:latest"
+
+
+[database]
+# Milvus url
+milvus_docker_url = ""
+milvus_collection_name = ""
+milvus_query_top_k = 5
+
