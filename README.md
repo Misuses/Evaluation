@@ -16,31 +16,31 @@
 #### （1）召回率（Recall）  
 - **定义**：检索结果覆盖的相关文档，占“所有相关文档”的比例。  
 - **公式**：  
-  ![Recall公式](Recall.png)  
+  ![Recall公式](Formula/Recall.png)  
 - **逻辑**：召回率越高，系统“找全相关文档”能力越强；值为 1 时，无相关文档遗漏。  
 
 #### （2）精确率（Precision）  
 - **定义**：检索结果里，真正相关文档的占比。  
 - **公式**：  
-  ![Precision公式](Precision.png)  
+  ![Precision公式](Formula/Precision.png)  
 - **逻辑**：精确率越高，结果“噪声越少”；值为 1 时，所有输出均为相关文档。  
 
 #### （3）命中数（Hit）  
 - **定义**：判断检索结果是否包含**至少 1 条相关文档**。  
 - **公式**：  
-  ![Hit公式](Hit.png)  
+  ![Hit公式](Formula/Hit.png)  
 - **逻辑**：二值指标，快速验证“是否命中相关内容”，简化初步效果判断。  
 
 #### （4）平均倒数排名（Mean Reciprocal Rank, MRR）  
 - **定义**：衡量“首个相关文档”在结果中的排名（排名越前，值越高）。  
 - **公式**：  
-  ![MRR公式](MRR.png)    
+  ![MRR公式](Formula/MRR.png)    
 - **逻辑**：关注“首条相关结果的位置”，排名第 1 时 MRR=1，体现结果“首条相关性”优劣。  
 
 #### （5）归一化折损累积增益（Normalized Discounted Cumulative Gain, NDCG）  
 - **定义**：综合“相关性得分”与“排名顺序”，评估结果质量（得分越高，质量越好）。 
   - 归一化折损累积增益（NDCG）：  
-    ![NDCG公式](NDCG.png#subset=NDCG)  
+    ![NDCG公式](Formula/NDCG.png#subset=NDCG)  
 - **逻辑**：兼顾“相关性强度”与“排序合理性”，NDCG=1 时，结果与“理想排序”完全一致，深度度量检索质量。  
 
 ### 4. 可视化分析  
