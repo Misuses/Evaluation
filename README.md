@@ -17,7 +17,7 @@
     - **静态融合**：通过 `static_alpha` 参数固定向量检索、关键词检索的权重占比，简单直接。
     - **动态融合**：依据查询“具体性”（如关键词密度、语义复杂度）自适应调整权重，贴合多样化检索意图。
 - **评估体系**：使用召回率、精确率、命中数、平均倒数排名（MRR）、归一化折损累积增益（NDCG）等指标来评估检索系统的性能。
-- 详细内容可以查看[method.md](https://github.com/Misuses/Evaluation/blob/main/Method/method.md "访问方法描述")
+- 详细内容可以查看[method.md](https://github.com/Misuses/Evaluation/blob/main/Method/method.md "访问方法描述")，[method1.md](https://github.com/Misuses/Evaluation/blob/main/Method/method1.md "访问方法描述")
   
 ## 核心功能  
 ### 1. 多模式检索  
