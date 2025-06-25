@@ -42,10 +42,12 @@ with open("D:\\XM\\Evaluation\\NQ-open.dev.jsonl", "r", encoding="utf-8") as f:
         results_vector[query] = ids_vector
 
 # === 输出评估指标 ===
-static_metrics = evaluate(results_static, ground_truth, top_k=5)
-dynamic_metrics = evaluate(results_dynamic, ground_truth, top_k=5)
-keyword_metrics = evaluate(results_keyword, ground_truth, top_k=5)
-vector_metrics = evaluate(results_vector, ground_truth, top_k=5)
+# 例如，只评估召回率（1）和 MRR（4）
+metric_ids = [1, 4]
+static_metrics = evaluate(results_static, ground_truth, top_k=5, metric_ids=metric_ids)
+dynamic_metrics = evaluate(results_dynamic, ground_truth, top_k=5, metric_ids=metric_ids)
+keyword_metrics = evaluate(results_keyword, ground_truth, top_k=5, metric_ids=metric_ids)
+vector_metrics = evaluate(results_vector, ground_truth, top_k=5, metric_ids=metric_ids)
 
 print("\n📊 静态权重混合检索：")
 print(static_metrics)
@@ -60,7 +62,15 @@ print("\n📊 只使用向量检索：")
 print(vector_metrics)
 
 # === 可视化评估结果 ===
-filtered_metrics = ['recall', 'hit', 'mrr', 'ndcg']
+filtered_metrics = [
+    "recall" if 1 in metric_ids else None,
+    "precision" if 2 in metric_ids else None,
+    "hit" if 3 in metric_ids else None,
+    "mrr" if 4 in metric_ids else None,
+    "ndcg" if 5 in metric_ids else None
+]
+filtered_metrics = [m for m in filtered_metrics if m is not None]
+
 static_values = [static_metrics[m] for m in filtered_metrics]
 dynamic_values = [dynamic_metrics[m] for m in filtered_metrics]
 keyword_values = [keyword_metrics[m] for m in filtered_metrics]
