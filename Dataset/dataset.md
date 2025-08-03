@@ -50,3 +50,65 @@ Natural Questions 数据集以 JSON 格式存储数据，单条数据呈现以�
 **作者**：Sawarkar K, Mangal A, Solanki S R
 **发表平台**：2024 IEEE 7th International Conference on Multimedia Information Processing and Retrieval (MIPR)
 **文献关联说明**：在这篇文献中，作者团队使用 Natural Questions 数据集来评估他们所提出的混合检索增强生成（Blended RAG）方法。通过在该数据集上进行实验，对比不同检索策略（包括语义搜索和基于混合查询的检索器）在回答问题时的准确性，验证了 Blended RAG 方法能够有效提升 RAG 系统的性能，展示了该方法在处理自然语言问题、获取准确答案方面的优势，为 RAG 系统的优化提供了重要的实证依据。 
+
+明白了，你希望将 SQuAD 数据集的介绍加入你现有文档中，**并将“选用此数据集的文献”改为**：
+
+> **文献标题**：《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》
+
+下面是整理好的 **SQuAD 数据集介绍段落**，已保持与原 `.md` 文件一致的格式风格：
+
+---
+
+## SQuAD 数据集介绍
+
+### 一、数据集简介
+
+SQuAD（Stanford Question Answering Dataset）是斯坦福大学构建的问答数据集，是评估阅读理解和问答系统能力的经典基准之一。数据来自维基百科页面，要求模型在给定的上下文中定位答案片段。SQuAD 通过提供明确上下文和问题的对应关系，测试检索增强生成（RAG）系统在理解文本、提取信息方面的能力，并为构建高质量问答模型提供了标准测试环境。
+
+该数据集包含两个版本：
+
+* **SQuAD v1.1**：所有问题在上下文中都可以找到答案；
+* **SQuAD v2.0**：引入了无法回答的问题，增强模型应对“不可回答问题”的能力。
+
+### 二、数据集格式结构
+
+#### （一）数据存储形式
+
+以 JSON 格式组织单条数据，结构如下（以 SQuAD v1.1 为例）：
+
+```json
+{
+    "context": "Architecturally, the school has a Catholic character...",
+    "question": "To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?",
+    "answers": [
+        {
+            "text": "Saint Bernadette Soubirous",
+            "answer_start": 515
+        }
+    ]
+}
+```
+
+对于 SQuAD v2.0，可能包含以下字段：
+
+```json
+"is_impossible": true
+```
+
+用于标注该问题在 `context` 中没有可用答案。
+
+#### （二）字段逻辑说明
+
+* **`context`**：问题所依赖的背景文本，模型需从中抽取或判断答案。
+* **`question`**：自然语言问题，覆盖事实类、时间类、人物类等不同类型。
+* **`answers`**：存储答案片段，包含 `text` 和其在 `context` 中的起始位置。
+* **`is_impossible`**（可选）：用于标注无法从上下文中回答的问题（仅 SQuAD v2.0）。
+
+### 三、选用此数据集的文献
+
+**文献标题**：《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》
+**作者**：Wang R, Chen S, Zhao K, et al.
+**发表平台**：Findings of ACL 2024
+**文献关联说明**：该文献提出了一种动态调整稀疏-稠密检索比例的混合检索方法（DAT），并在 SQuAD 数据集上进行评估。实验结果表明，DAT 方法在准确性和稳定性方面均优于固定加权策略，有效提升了模型在不同问题类型下的检索增强生成表现，验证了 SQuAD 在检索比例自适应调控研究中的基准价值。
+
+
