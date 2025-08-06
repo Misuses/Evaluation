@@ -108,7 +108,7 @@ SQuAD（Stanford Question Answering Dataset）是斯坦福大学构建的问答�
 
 **文献标题**：《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》
 **作者**：Wang R, Chen S, Zhao K, et al.
-**发表平台**：Findings of ACL 2024
+**发表平台**：arXiv:2503.23013 
 **文献关联说明**：该文献提出了一种动态调整稀疏-稠密检索比例的混合检索方法（DAT），并在 SQuAD 数据集上进行评估。实验结果表明，DAT 方法在准确性和稳定性方面均优于固定加权策略，有效提升了模型在不同问题类型下的检索增强生成表现，验证了 SQuAD 在检索比例自适应调控研究中的基准价值。
 
 
