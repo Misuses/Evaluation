@@ -1,5 +1,9 @@
 ## DH-RAG — Dynamic Historical Context-Powered Retrieval-Augmented Generation
 
+----
+Zhang F, Zhu D, Ming J, et al. Dh-rag: A dynamic historical context-powered retrieval-augmented generation method for multi-turn dialogue[J]. arXiv preprint arXiv:2502.13847, 2025.
+----
+
 ### 1. 背景与动机
 在多轮对话和知识密集型问答任务中，传统的 Retrieval-Augmented Generation（RAG）通常依赖**静态知识库**（Static Knowledge Base, KB）进行信息检索。这种方式虽然可以提升知识覆盖率，但存在两个突出问题：
 1. **缺乏对动态对话历史的有效利用**  
