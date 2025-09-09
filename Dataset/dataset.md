@@ -23,8 +23,11 @@ HaluEval 数据集聚焦大语言模型幻觉缓解相关的混合检索研究�
 
 ## 三、选用此数据集的文献  
 **文献标题**：《Hybrid Retrieval for Hallucination Mitigation in Large Language Models: A Comparative Analysis》  
+
 **作者**：Mala C S, Gezici G, Giannotti F  
+
 **发表平台**：arXiv preprint arXiv:2504.05324  
+
 **文献关联说明**：该文献利用 HaluEval 数据集，对比不同混合检索策略在缓解大语言模型幻觉问题中的表现。通过分析数据集里知识文本、问题、幻觉答案与正确答案的关联，验证混合检索对纠正模型错误回答、提升输出可靠性的作用，为大语言模型结合检索优化幻觉问题提供实证依据 。 
 
 # Natural Questions数据集介绍
@@ -47,19 +50,16 @@ Natural Questions 数据集以 JSON 格式存储数据，单条数据呈现以�
 
 ## 三、选用此数据集的文献
 **文献标题**：《Blended rag: Improving rag (retriever-augmented generation) accuracy with semantic search and hybrid query-based retrievers》
+
 **作者**：Sawarkar K, Mangal A, Solanki S R
+
 **发表平台**：2024 IEEE 7th International Conference on Multimedia Information Processing and Retrieval (MIPR)
+
 **文献关联说明**：在这篇文献中，作者团队使用 Natural Questions 数据集来评估他们所提出的混合检索增强生成（Blended RAG）方法。通过在该数据集上进行实验，对比不同检索策略（包括语义搜索和基于混合查询的检索器）在回答问题时的准确性，验证了 Blended RAG 方法能够有效提升 RAG 系统的性能，展示了该方法在处理自然语言问题、获取准确答案方面的优势，为 RAG 系统的优化提供了重要的实证依据。 
-
-明白了，你希望将 SQuAD 数据集的介绍加入你现有文档中，**并将“选用此数据集的文献”改为**：
-
-> **文献标题**：《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》
-
-下面是整理好的 **SQuAD 数据集介绍段落**，已保持与原 `.md` 文件一致的格式风格：
 
 ---
 
-## SQuAD 数据集介绍
+# SQuAD 数据集介绍
 
 ### 一、数据集简介
 
@@ -107,8 +107,79 @@ SQuAD（Stanford Question Answering Dataset）是斯坦福大学构建的问答�
 ### 三、选用此数据集的文献
 
 **文献标题**：《DAT: Dynamic Alpha Tuning for Hybrid Retrieval in Retrieval-Augmented Generation》
+
 **作者**：Wang R, Chen S, Zhao K, et al.
+
 **发表平台**：arXiv:2503.23013 
+
 **文献关联说明**：该文献提出了一种动态调整稀疏-稠密检索比例的混合检索方法（DAT），并在 SQuAD 数据集上进行评估。实验结果表明，DAT 方法在准确性和稳定性方面均优于固定加权策略，有效提升了模型在不同问题类型下的检索增强生成表现，验证了 SQuAD 在检索比例自适应调控研究中的基准价值。
+
+
+---
+
+#  PopQA 数据集简介
+
+* **全称**：**PopQA** (Popular Culture Question Answering Dataset)
+
+* **提出时间**：2022 年，由 Facebook AI (Meta AI Research) 团队提出。
+
+* **用途**：专门用于评估 **开放域问答（Open-domain QA）系统**在 **流行文化（Popular Culture）知识**上的表现。
+
+* **动机**：
+
+  * 传统 QA 数据集（如 **Natural Questions、TriviaQA**）多集中在百科知识，而缺乏对 **长尾知识和大众文化领域**的覆盖。
+  * PopQA 补充了这一空缺，强调评估模型是否掌握 **不在维基百科等知识库主流内容中的知识**。
+
+* **数据规模**：
+
+  * 约 **14 万条问答对（Q-A pairs）**。
+  * 覆盖 **电影、电视剧、音乐、电子游戏、体育、明星等领域**。
+
+* **任务形式**：
+
+  * 输入：一个自然语言问题。
+  * 输出：答案（一般是 **实体名称**，如人物、作品、地名）。
+
+---
+
+## 数据集格式
+
+PopQA 的数据文件通常是 **JSONL (JSON Lines)** 格式，每一行是一条问答样本，基本字段如下：
+
+```json
+{
+  "id": "popqa_000001",
+  "question": "Who played Jack in the movie Titanic?",
+  "answers": ["Leonardo DiCaprio"],
+  "category": "movies",
+  "source": "imdb"
+}
+```
+
+### 字段说明
+
+* **id**: 样本编号（唯一标识）。
+* **question**: 提出的问题（自然语言形式）。
+* **answers**: 答案列表（通常只有 1 个正确答案，但也可能有多个同义答案）。
+* **category**: 问题所属的流行文化类别（如 *movies*, *music*, *sports*, *tv* 等）。
+* **source**: 数据来源（如 IMDb、MusicBrainz、Sports DB 等）。
+
+---
+
+### 三、选用此数据集的文献
+
+**文献标题**：《DH-RAG: A Dynamic Historical Context-Powered Retrieval-Augmented Generation Method for Multi-Turn Dialogue》
+
+**作者**：Zhang F, Zhu D, Ming J, et al.
+
+**发表平台**：arXiv preprint arXiv:2502.13847, 2025
+
+**文献关联说明**：该文献提出了一种面向多轮对话的动态历史上下文增强检索生成方法（DH-RAG），通过引入历史对话语境的动态建模机制，有效缓解了多轮交互中信息丢失与语境漂移的问题。在实验中，研究者选用了 PopQA 数据集作为评测基准，验证了该方法在流行文化知识问答场景下的有效性。PopQA 数据集具有以下特点：其问题覆盖电影、音乐、体育、电视剧等流行文化领域，知识分布呈现明显的长尾特性，并且部分问答需要依赖上下文信息才能得到正确答案。这些特性与多轮对话场景高度契合，使得 PopQA 成为检验 DH-RAG 在处理 **长尾知识、上下文依赖及对话连贯性** 方面表现的理想数据集。实验结果表明，DH-RAG 在保持对话一致性的同时显著提升了答案的准确率和相关性，凸显了 PopQA 在多轮对话检索增强生成方法研究中的重要基准价值。
+
+---
+
+
+
+
 
 
